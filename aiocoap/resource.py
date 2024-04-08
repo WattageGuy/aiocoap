@@ -343,7 +343,7 @@ class Site(interfaces.ObservableResource, PathCapable):
                 request.get_request_uri(local_is_server=True))
 
         if request.opt.uri_path in self._resources:
-            stripped = request.copy(uri_path=())
+            stripped = request.copy(uri_path=request.opt.uri_path)
             stripped._original_request_uri = original_request_uri
             return self._resources[request.opt.uri_path], stripped
 
